@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://f2rmkfrumnnx"]
+
+[ext_resource type="Script" uid="uid://n5nc81foxdyb" path="res://scripts/player_12.gd" id="1_3457y"]
+[ext_resource type="Texture2D" uid="uid://dxsprvidahnfr" path="res://assets/SPRITES/12 IDLE/twelvee 2d1.png" id="1_x3d6s"]
+[ext_resource type="Texture2D" uid="uid://cthl8qk3o1mho" path="res://assets/SPRITES/12 IDLE/twelvee 2d2.png" id="2_3457y"]
+[ext_resource type="Texture2D" uid="uid://crg8u8vtr7atv" path="res://assets/SPRITES/12 RUN/twelvee 2d run1.png" id="4_bgt0c"]
+[ext_resource type="Texture2D" uid="uid://cygn0gvu18ijb" path="res://assets/SPRITES/12 JUMP/twelvee 2d jump sprite1.png" id="4_cgia3"]
+[ext_resource type="Texture2D" uid="uid://cj75g6ogqfra4" path="res://assets/SPRITES/12 RUN/twelvee 2d run2.png" id="5_e4dfi"]
+[ext_resource type="Texture2D" uid="uid://oviwpge48iek" path="res://assets/SPRITES/12 JUMP/twelvee 2d jump sprite2.png" id="5_nlte0"]
+[ext_resource type="Texture2D" uid="uid://dfnrhy3djxl74" path="res://assets/SPRITES/12 RUN/twelvee 2d run3.png" id="6_1xqvo"]
+[ext_resource type="Texture2D" uid="uid://d0bqhry31aysp" path="res://assets/SPRITES/12 JUMP/twelvee 2d jump sprite3.png" id="6_mscsh"]
+[ext_resource type="Texture2D" uid="uid://bl6qxb4pf3waq" path="res://assets/SPRITES/12 JUMP/twelvee 2d jump sprite4.png" id="7_08kog"]
+[ext_resource type="Texture2D" uid="uid://18cbnk3h34qw" path="res://assets/SPRITES/12 RUN/twelvee 2d run4.png" id="7_g6j00"]
+[ext_resource type="Texture2D" uid="uid://bs5h3v5jvf1ss" path="res://assets/SPRITES/12 RUN/twelvee 2d run5.png" id="8_cgia3"]
+[ext_resource type="Texture2D" uid="uid://b0gxily8c61jl" path="res://assets/SPRITES/12 RUN/twelvee 2d run6.png" id="9_nlte0"]
+[ext_resource type="Texture2D" uid="uid://c5du8p8crvc1p" path="res://assets/SPRITES/12 RUN/twelvee 2d run7.png" id="10_mscsh"]
+[ext_resource type="Texture2D" uid="uid://deiixm6e7iyo2" path="res://assets/SPRITES/12 RUN/twelvee 2d run8.png" id="11_08kog"]
+[ext_resource type="Texture2D" uid="uid://c86c1kmj3gsxx" path="res://assets/SPRITES/12 RUN/twelvee 2d run9.png" id="12_1mdj3"]
+[ext_resource type="Texture2D" uid="uid://b5yaia1pbsvge" path="res://assets/SPRITES/12 RUN/twelvee 2d run10.png" id="13_2015q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1wnw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x3d6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3457y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.3
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cgia3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nlte0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mscsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_08kog")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bgt0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e4dfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1xqvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g6j00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cgia3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nlte0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mscsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_08kog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1mdj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2015q")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q36to"]
+radius = 6.0
+height = 44.0
+
+[node name="PLAYER12" type="CharacterBody2D" unique_id=875280792]
+collision_layer = 2
+script = ExtResource("1_3457y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2075989299]
+position = Vector2(0, -31)
+sprite_frames = SubResource("SpriteFrames_k1wnw")
+animation = &"jump"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=955325287]
+position = Vector2(-1, -22)
+shape = SubResource("CapsuleShape2D_q36to")

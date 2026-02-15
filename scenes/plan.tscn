@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dftlycoafxsbs"]
+
+[ext_resource type="Texture2D" uid="uid://ccfrrurp7fovc" path="res://assets/SPRITES/PLAN/PLANSOSTO.png" id="1_nymtw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c726p"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaqwr"]
+atlas = ExtResource("1_nymtw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3k2bc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaqwr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Plan" type="Area2D" unique_id=1594749983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1656595462]
+shape = SubResource("CircleShape2D_c726p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=547466504]
+position = Vector2(0, -6)
+scale = Vector2(1.40625, 1.15625)
+sprite_frames = SubResource("SpriteFrames_3k2bc")

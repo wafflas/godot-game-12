@@ -1,0 +1,287 @@
+[gd_scene format=4 uid="uid://ol70udiyeamv"]
+
+[ext_resource type="Texture2D" uid="uid://doiwjuqupt1nm" path="res://assets/SPRITES/Hills Free (update 3.0).png" id="1_ir15t"]
+[ext_resource type="PackedScene" uid="uid://f2rmkfrumnnx" path="res://scenes/player_12.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dmpduo2mrs88q" path="res://assets/SPRITES/GROUND/sostoground1.png" id="2_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://bepvthfq8j8kw" path="res://assets/SPRITES/GROUND/sostoground2.png" id="3_gee14"]
+[ext_resource type="Texture2D" uid="uid://ccfrrurp7fovc" path="res://assets/SPRITES/PLAN/PLANSOSTO.png" id="3_vtaks"]
+[ext_resource type="Texture2D" uid="uid://4ctcg3fxw3sm" path="res://assets/SPRITES/GROUND/sostoground3.png" id="4_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://c7onv7rcl3n45" path="res://assets/SPRITES/GROUND/sostoground4.png" id="5_vtaks"]
+[ext_resource type="Texture2D" uid="uid://ir2gwfrw21an" path="res://assets/SPRITES/GROUND/sostoground5.png" id="6_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://d2ubwr6038168" path="res://assets/SPRITES/GROUND/sostoground6.png" id="7_dinhu"]
+[ext_resource type="Texture2D" uid="uid://dp0cqnupdmgxo" path="res://assets/SPRITES/POST/post.png" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://qecrrtxmoifc" path="res://assets/SPRITES/KTIRIA/KTIRIA SOSTA.png" id="9_vtaks"]
+[ext_resource type="Texture2D" uid="uid://bi74okiaxyov4" path="res://assets/SPRITES/AnimatedAutum.png" id="10_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://jswaqsr1cqp" path="res://scenes/PLATFORM.tscn" id="12_dinhu"]
+[ext_resource type="PackedScene" uid="uid://bh3otm6lv1xuh" path="res://scenes/coin.tscn" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://c0koky81fnyuk" path="res://scenes/killzone.tscn" id="13_trtic"]
+[ext_resource type="PackedScene" uid="uid://dftlycoafxsbs" path="res://scenes/plan.tscn" id="16_ca42v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ir15t"]
+
+[sub_resource type="Animation" id="Animation_kvuet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(402, 37)]
+}
+
+[sub_resource type="Animation" id="Animation_dinhu"]
+resource_name = "movingplat"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(402, 37), Vector2(687, 37)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trtic"]
+_data = {
+&"RESET": SubResource("Animation_kvuet"),
+&"movingplat": SubResource("Animation_dinhu")
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_264po"]
+texture = ExtResource("10_kvpfn")
+texture_region_size = Vector2i(64, 64)
+0:0/animation_columns = 16
+0:0/animation_speed = 1.5
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 0.4
+0:0/animation_frame_1/duration = 0.4
+0:0/animation_frame_2/duration = 0.4
+0:0/animation_frame_3/duration = 0.4
+0:0/animation_frame_4/duration = 0.4
+0:0/animation_frame_5/duration = 0.4
+0:0/animation_frame_6/duration = 0.4
+0:0/animation_frame_7/duration = 0.4
+0:0/animation_frame_8/duration = 0.4
+0:0/animation_frame_9/duration = 0.4
+0:0/animation_frame_10/duration = 0.4
+0:0/animation_frame_11/duration = 0.4
+0:0/animation_frame_12/duration = 0.4
+0:0/animation_frame_13/duration = 0.4
+0:0/animation_frame_14/duration = 0.4
+0:0/animation_frame_15/duration = 0.4
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1kice"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_264po")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvuet"]
+texture = ExtResource("2_u5sy4")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trtic"]
+texture = ExtResource("3_gee14")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvpfn"]
+texture = ExtResource("3_vtaks")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
+texture = ExtResource("4_0tnpc")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ca42v"]
+texture = ExtResource("5_vtaks")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rysoc"]
+texture = ExtResource("6_kvpfn")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssvqc"]
+texture = ExtResource("7_dinhu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
+texture = ExtResource("8_gee14")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinhu"]
+texture = ExtResource("9_vtaks")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_264po"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_kvuet")
+sources/1 = SubResource("TileSetAtlasSource_trtic")
+sources/2 = SubResource("TileSetAtlasSource_ir15t")
+sources/3 = SubResource("TileSetAtlasSource_ca42v")
+sources/4 = SubResource("TileSetAtlasSource_rysoc")
+sources/5 = SubResource("TileSetAtlasSource_ssvqc")
+sources/6 = SubResource("TileSetAtlasSource_0tnpc")
+sources/7 = SubResource("TileSetAtlasSource_dinhu")
+sources/10 = SubResource("TileSetAtlasSource_kvpfn")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ir15t"]
+a = Vector2(-22, -41)
+b = Vector2(-22, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
+size = Vector2(9, 92)
+
+[node name="Game" type="Node2D" unique_id=862457375]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1865304432]
+position = Vector2(348.00003, -139)
+scale = Vector2(3.3984373, 2.0351563)
+texture = ExtResource("1_ir15t")
+
+[node name="Player" parent="." unique_id=1801826766 instance=ExtResource("1_uwrxv")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=301888823]
+position = Vector2(0, -40)
+zoom = Vector2(2, 2)
+limit_bottom = 120
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Killzone" parent="." unique_id=1159070489 instance=ExtResource("13_trtic")]
+position = Vector2(47, 183)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=46954754]
+shape = SubResource("WorldBoundaryShape2D_ir15t")
+
+[node name="Platforms" type="Node" parent="." unique_id=1792644075]
+
+[node name="MovingPlatform" parent="Platforms" unique_id=619989 instance=ExtResource("12_dinhu")]
+position = Vector2(402, 37)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/MovingPlatform" unique_id=2132526802]
+libraries/ = SubResource("AnimationLibrary_trtic")
+autoplay = &"movingplat"
+
+[node name="Platform1" parent="Platforms" unique_id=1413629685 instance=ExtResource("12_dinhu")]
+position = Vector2(164, -68)
+
+[node name="Platfrom3" parent="Platforms" unique_id=902009589 instance=ExtResource("12_dinhu")]
+position = Vector2(526, -36)
+
+[node name="Scenes" type="Node" parent="." unique_id=459067483]
+
+[node name="Top" type="TileMapLayer" parent="Scenes" unique_id=1097622503]
+tile_map_data = PackedByteArray("AAD9////AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_1kice")
+
+[node name="Mid" type="TileMapLayer" parent="Scenes" unique_id=704471995]
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAIAAEAAQAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAEAAQAAAAAAAAAHAAAABAAAAAAAAAAKAAEAAQAAAAAAAAABAAAABAAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAABAAQAAwAAAAAAAAAEAAQAAgAAAAAAAAAEAAMAAgAAAAAAAAAEAAIAAgAAAAAAAAAEAAEAAgAAAAAAAAAEAAAABQAAAAAAAAAGAP3/AQAAAAAAAAAHAP3/AQAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAD+/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD6/wAAAQAAAAAAAAD5/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD3/wEAAAAAAAAAAAD3/wIAAAAAAAAAAAD3/wMAAAAAAAAAAAD4/wMAAAAAAAAAAAD4/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD3/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD6/wMAAAAAAAAAAAD5/wMAAAAAAAAAAAD4/wIAAAAAAAAAAAD4/wEAAAAAAAAAAAD5/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD7/wIAAAAAAAAAAAD6/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAABAAMAAwAAAAAAAAD//wMAAAAAAAAAAAD3/wAAAQAAAAAAAAD+//7/BgAAAAAAAAD+////BgAAAAEAAAD///7/BgABAAAAAAD/////BgABAAEAAAD2/wAABQAAAAAAAAD2/wEAAgAAAAAAAAD2/wIAAgAAAAAAAAD2/wMAAgAAAAAAAAD2/wQAAgAAAAAAAAALAAEABAAAAAAAAAALAAIAAwAAAAAAAAALAAMAAwAAAAAAAAALAAQAAwAAAAAAAAAWAAEABQAAAAAAAAAWAAIAAgAAAAAAAAAWAAMAAgAAAAAAAAAWAAQAAgAAAAAAAAAXAAEAAQAAAAAAAAAXAAIAAAAAAAAAAAAXAAMAAAAAAAAAAAAXAAQAAAAAAAAAAAAYAAEAAQAAAAAAAAAYAAIAAAAAAAAAAAAYAAMAAAAAAAAAAAAYAAQAAAAAAAAAAAAZAAEAAQAAAAAAAAAZAAIAAAAAAAAAAAAZAAMAAAAAAAAAAAAZAAQAAAAAAAAAAAAZAP7/BwACAAAAAAAZAP//BwAGAAAAAAAZAAAABwAGAAAAAAAaAP7/BwAAAAAAAAAaAP//BwAIAAAAAAAaAAAABwAJAAAAAAAaAAEAAQAAAAAAAAAaAAIAAAAAAAAAAAAaAAMAAAAAAAAAAAAaAAQAAAAAAAAAAAAbAP7/BwABAAAAAAAbAP//BwAFAAAAAAAbAAAABwAEAAAAAAAbAAEAAQAAAAAAAAAbAAIAAAAAAAAAAAAbAAMAAAAAAAAAAAAbAAQAAAAAAAAAAAAcAAEABAAAAAAAAAAcAAIAAwAAAAAAAAAcAAMAAwAAAAAAAAAcAAQAAwAAAAAAAAARAP7/AQAAAAAAAAASAP7/AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_264po")
+
+[node name="Coins" type="Node" parent="." unique_id=244063112]
+
+[node name="Coin" parent="Coins" unique_id=1454947681 instance=ExtResource("13_kvuet")]
+position = Vector2(137, -13.000001)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin2" parent="Coins" unique_id=239580401 instance=ExtResource("13_kvuet")]
+position = Vector2(244, -107)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin3" parent="Coins" unique_id=1007432551 instance=ExtResource("13_kvuet")]
+position = Vector2(225, -107)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin4" parent="Coins" unique_id=1988705947 instance=ExtResource("13_kvuet")]
+position = Vector2(205.00002, -107)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin5" parent="Coins" unique_id=1387386580 instance=ExtResource("13_kvuet")]
+position = Vector2(364, 16)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin6" parent="Coins" unique_id=684957506 instance=ExtResource("13_kvuet")]
+position = Vector2(526, -54)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin7" parent="Coins" unique_id=2045086160 instance=ExtResource("13_kvuet")]
+position = Vector2(592, -78)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin8" parent="Coins" unique_id=1550873390 instance=ExtResource("13_kvuet")]
+position = Vector2(566, -78)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin9" parent="Coins" unique_id=1480119216 instance=ExtResource("13_kvuet")]
+position = Vector2(564, 0)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin10" parent="Coins" unique_id=435387248 instance=ExtResource("13_kvuet")]
+position = Vector2(588, 0)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin11" parent="Coins" unique_id=496578492 instance=ExtResource("13_kvuet")]
+position = Vector2(724, 14)
+scale = Vector2(0.15, 0.15)
+
+[node name="Coin12" parent="Coins" unique_id=1170144591 instance=ExtResource("13_kvuet")]
+position = Vector2(753, 14)
+scale = Vector2(0.15, 0.15)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1226433727]
+position = Vector2(909, -22)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1063659696]
+shape = SubResource("SegmentShape2D_ir15t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=962583401]
+position = Vector2(-61, -35.5)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_ir15t")
+
+[node name="Powerups" type="Node" parent="." unique_id=33056930]
+
+[node name="Plan" type="Node" parent="Powerups" unique_id=922203656]
+
+[node name="Plan" parent="Powerups/Plan" unique_id=1594749983 instance=ExtResource("16_ca42v")]
+position = Vector2(40, -12)
