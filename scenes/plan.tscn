@@ -1,31 +1,88 @@
 [gd_scene format=3 uid="uid://dftlycoafxsbs"]
 
-[ext_resource type="Texture2D" uid="uid://ccfrrurp7fovc" path="res://assets/SPRITES/PLAN/PLANSOSTO.png" id="1_nymtw"]
+[ext_resource type="Script" uid="uid://bk45ndo2j8esy" path="res://scripts/plan.gd" id="1_c726p"]
+[ext_resource type="Texture2D" uid="uid://4p0pebip2bkx" path="res://assets/sprites/PLAN/plan_animated-removebg-preview.png" id="1_nymtw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c726p"]
 radius = 8.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c726p"]
+atlas = ExtResource("1_nymtw")
+region = Rect2(0, 166, 62, 166)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_eaqwr"]
 atlas = ExtResource("1_nymtw")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(62, 166, 62, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k2bc"]
+atlas = ExtResource("1_nymtw")
+region = Rect2(124, 166, 62, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vvub"]
+atlas = ExtResource("1_nymtw")
+region = Rect2(186, 166, 62, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2y31"]
+atlas = ExtResource("1_nymtw")
+region = Rect2(248, 166, 62, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlt42"]
+atlas = ExtResource("1_nymtw")
+region = Rect2(310, 166, 62, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hm51"]
+atlas = ExtResource("1_nymtw")
+region = Rect2(372, 166, 62, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmsns"]
+atlas = ExtResource("1_nymtw")
+region = Rect2(434, 166, 62, 166)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3k2bc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_c726p")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_eaqwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k2bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vvub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2y31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlt42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hm51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmsns")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Plan" type="Area2D" unique_id=1594749983]
+collision_mask = 2
+script = ExtResource("1_c726p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1656595462]
 shape = SubResource("CircleShape2D_c726p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=547466504]
-position = Vector2(0, -6)
-scale = Vector2(1.40625, 1.15625)
+position = Vector2(-1, 1)
+scale = Vector2(0.27898183, 0.22279745)
 sprite_frames = SubResource("SpriteFrames_3k2bc")
+autoplay = "default"
+frame = 1
+frame_progress = 0.78577584
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

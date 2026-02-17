@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b4j6iry20paur"]
+
+[ext_resource type="Texture2D" uid="uid://dk88gwwknw21w" path="res://assets/sprites/cop/cop-animated.png" id="1_gpeqj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbxtp"]
+atlas = ExtResource("1_gpeqj")
+region = Rect2(0, 0, 169, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lofp6"]
+atlas = ExtResource("1_gpeqj")
+region = Rect2(169, 0, 169, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a42f"]
+atlas = ExtResource("1_gpeqj")
+region = Rect2(338, 0, 169, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6ui8"]
+atlas = ExtResource("1_gpeqj")
+region = Rect2(507, 0, 169, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yec84"]
+atlas = ExtResource("1_gpeqj")
+region = Rect2(0, 184, 169, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y7aj"]
+atlas = ExtResource("1_gpeqj")
+region = Rect2(169, 184, 169, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g12ed"]
+atlas = ExtResource("1_gpeqj")
+region = Rect2(338, 184, 169, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c5in"]
+atlas = ExtResource("1_gpeqj")
+region = Rect2(507, 184, 169, 184)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_leyur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbxtp")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_lofp6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6a42f")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_c6ui8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yec84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y7aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g12ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c5in")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpeqj"]
+height = 44.0
+
+[node name="Cop" type="CharacterBody2D" unique_id=792585344]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=517128877]
+position = Vector2(-1, -2)
+scale = Vector2(0.2928994, 0.2928994)
+sprite_frames = SubResource("SpriteFrames_leyur")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1992825109]
+position = Vector2(-2, 3)
+shape = SubResource("CapsuleShape2D_gpeqj")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=715976510]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=520049283]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1984956635]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=158165579]
